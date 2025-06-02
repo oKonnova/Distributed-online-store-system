@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Store</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      max-width: 800px; 
+      margin: 0 auto; 
+      padding: 20px; 
+      background-color: #f5f5f5; /* Світлий фон для всієї сторінки */
+    }
+    h1 { 
+      text-align: center; 
+      color: #333; 
+    }
+    h2 { 
+      margin-top: 0; 
+      color: #444; 
+    }
+    /* Стилі для секцій */
+    .section { 
+      background-color: white; /* Білий фон для кожної секції */
+      border: 1px solid #ddd; /* Рамка навколо секції */
+      border-radius: 8px; /* Закруглені кути */
+      padding: 20px; 
+      margin-bottom: 20px; /* Відступ між секціями */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легка тінь для глибини */
+    }
+    .product-item, .cart-item { 
+      margin: 10px 0; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }
+    button { 
+      padding: 5px 10px; 
+      cursor: pointer; 
+    }
+    .add-btn { 
+      background-color: #007bff; 
+      color: white; 
+      border: none; 
+      border-radius: 3px; 
+    }
+    .remove-btn { 
+      background-color: #28a745; 
+      color: white; 
+      border: none; 
+      border-radius: 3px; 
+    }
+    .checkout-btn { 
+      background-color: #28a745; 
+      color: white; 
+      border: none; 
+      border-radius: 3px; 
+      padding: 10px 20px; 
+      display: block; /* Щоб кнопка займала всю ширину секції */
+      margin: 0 auto; /* Центрування кнопки */
+    }
+    .success { 
+      color: green; 
+    }
+    .cart-total { 
+      margin-top: 10px; 
+      font-weight: bold; 
+      text-align: right; /* Вирівнювання суми праворуч */
+    }
+    .modal { 
+      display: none; 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      background-color: rgba(0, 0, 0, 0.5); 
+    }
+    .modal-content { 
+      background-color: white; 
+      margin: 15% auto; 
+      padding: 20px; 
+      border: 1px solid #888; 
+      width: 80%; 
+      max-width: 500px; 
+      text-align: center; 
+    }
+    .close-btn { 
+      color: #aaa; 
+      float: right; 
+      font-size: 28px; 
+      font-weight: bold; 
+      cursor: pointer; 
+    }
+    .close-btn:hover { 
+      color: black; 
+    }
+  </style>
+</head>
+<body>
+  <h1>Online Store</h1>
+
+  <!-- Секція Products -->
+  <div class="section">
+    <h2>Products</h2>
+    <div id="productList"></div>
+    <p id="addMessage"></p>
+  </div>
+
+  <!-- Секція Cart -->
+  <div class="section">
+    <h2>Cart</h2>
+    <div id="cartItems"></div>
+  </div>
+
+  <!-- Секція Checkout -->
+  <div class="section">
+    <h2>Checkout</h2>
+    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+  </div>
+
+  <!-- Модальне вікно -->
+  <div id="orderModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">×</span>
+      <h2>Order Confirmation</h2>
+      <p id="orderMessage"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    window.API_TOKEN = 'my-secret-api-token-2025';
+  </script>
+</body>
+</html>
